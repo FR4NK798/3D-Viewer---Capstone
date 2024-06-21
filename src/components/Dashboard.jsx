@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 
 import { useDispatch, useSelector } from "react-redux";
 import { LOGIN } from "../redux/actions";
+import Table from "react-bootstrap/Table";
 
 const Transcript = () => {
   const dispatch = useDispatch();
@@ -64,83 +65,84 @@ const Transcript = () => {
   return (
     <div>
       <Link to={`/addModel`}>Aggiungi modello</Link>
-      <h1>Lista modelli</h1>
-      <table className="table">
+      <h1 className="my-2">Lista modelli</h1>
+      <Table className="mt-4" responsive striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th scope="col">Nome</th>
-            {/* <th scope="col">Ruolo</th> */}
-            <th scope="col">Stato</th>
+            <th>Nome</th>
+
+            <th colSpan={100}>Stato</th>
           </tr>
         </thead>
         <tbody>
           {models && (
             <>
               {models.map((model, i) => (
-                // <div key={i}>
                 <tr key={i}>
-                  <td>{model.name}</td>
-                  {/*
-                  {model.users.map((user, i) => {
-                    if (user.id === user_id) {
-                      console.log("trovato");
-                      if (user.pivot.role === "owner") {
-                        return <td>Proprietario</td>;
-                      }
-                      if (user.pivot.role === "collaborator") {
-                        return <td>Collaboratore</td>;
-                      } else {
-                        return <td>Non verificato</td>;
-                      }
-                    }
-                  })} */}
+                  <td class="align-middle">{model.name}</td>
 
                   {model.status === "accepted" ? (
-                    <td>Pubblicato</td>
+                    <td class="align-middle">Pubblicato</td>
                   ) : model.status === "reject" ? (
                     <>
-                      <td>Rifiutato</td>
-                      <Button
-                        variant="warning"
-                        onClick={() => {
-                          rimanda(model.id);
-                        }}
-                      >
-                        Rimanda
-                      </Button>
+                      <td class="align-middle">Rifiutato</td>
+                      <td>
+                        <Button
+                          className="my-2"
+                          variant="warning"
+                          onClick={() => {
+                            rimanda(model.id);
+                          }}
+                        >
+                          Rimanda
+                        </Button>
+                      </td>
                     </>
                   ) : (
                     <>
-                      <td>In attesa</td>
-                      <Button
-                        variant="warning"
-                        onClick={() => {
-                          rimanda(model.id);
-                        }}
-                      >
-                        Rimanda
-                      </Button>
+                      <td class="align-middle">In attesa</td>
+                      <td>
+                        <Button
+                          className="my-2"
+                          variant="warning"
+                          onClick={() => {
+                            rimanda(model.id);
+                          }}
+                        >
+                          Rimanda
+                        </Button>
+                      </td>
                     </>
                   )}
-                  <Button
-                    variant="warning"
-                    onClick={() => {
-                      deleteGeo(model.id);
-                    }}
-                  >
-                    Elimina
-                  </Button>
-                  <Link to={`/details/${model.id}`}>Dettagli</Link>
-                  <Link to={`/edit/${model.id}/${JSON.stringify(model)}`}>
-                    Modifica
-                  </Link>
+                  <td>
+                    <Button
+                      className="my-2"
+                      variant="danger"
+                      onClick={() => {
+                        deleteGeo(model.id);
+                      }}
+                    >
+                      Elimina
+                    </Button>
+                  </td>
+                  <td>
+                    <Link to={`/details/${model.id}`}>
+                      <button className="btn btn-info my-2">Dettagli</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={`/edit/${model.id}/${JSON.stringify(model)}`}>
+                      <button className="btn btn-secondary my-2">
+                        Modifica
+                      </button>
+                    </Link>
+                  </td>
                 </tr>
-                // </div>
               ))}
             </>
           )}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
