@@ -65,7 +65,7 @@ const Transcript = () => {
   return (
     <div>
       <Link to={`/addModel`}>Aggiungi modello</Link>
-      <h1 className="my-2">Lista modelli</h1>
+      <h1 className="my-2 text-white">Lista modelli</h1>
       <Table className="mt-4" responsive striped bordered hover variant="dark">
         <thead>
           <tr>

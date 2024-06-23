@@ -24,41 +24,24 @@ const TopNav = () => {
   console.log("user nav", user);
 
   return (
-    <Navbar className="bg-body-tertiary">
+    <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="/">ThreeD Viewer</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            {/* <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link> */}
-          </Nav>
+          <Nav className="ms-auto"></Nav>
         </Navbar.Collapse>
-
-        {/* <li className="nav-item">
-          <Link className="nav-link active" to="/transcript">
-            Transcript
-          </Link>
-        </li> */}
 
         {user ? (
           <>
             {user.role === "user" ? (
               <Link className="nav-link active" to="/dashboard">
-                <span className="me-2">{user.name}</span>
+                <span className="me-2 text-white">{user.name}</span>
               </Link>
             ) : (
-              <span className="me-2">{user.name}</span>
+              <span className="me-2 text-white">{user.name}</span>
             )}
-            {/* <Link className="nav-link active" to="/faculty">
-              <span className="me-2">{user.name}</span>
-            </Link> */}
-            {/* <img
-              className="me-2"
-              src={user.profile_img}
-              alt=""
-              style={{ height: "50px", width: "50px" }}
-            /> */}
+
             <button className="btn btn-primary" onClick={logout}>
               Logout
             </button>

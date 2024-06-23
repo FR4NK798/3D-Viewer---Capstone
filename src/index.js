@@ -8,13 +8,13 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 // three fiber
-import { Leva } from "leva";
+// import { Leva } from "leva";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <App />
-    <Leva collapsed />
+    {/* <Leva collapsed /> */}
   </Provider>
 );
 

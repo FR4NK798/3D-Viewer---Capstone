@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 // import FetchComponent from "./components/FetchComponent";
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGIN } from "./redux/actions";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -20,35 +20,27 @@ import ViewModel from "./components/ViewModel";
 import AddModel from "./components/AddModel";
 import EditModel from "./components/EditModel";
 
-// prova
-import UploadForm from "./components/UploadForm";
-
-import { useNavigate, useParams } from "react-router-dom";
+import AppProva from "./components/AppProva";
+import AppProvaDue from "./components/AppProvaDue";
 
 // per importare modello
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { Suspense } from "react";
+// import { useLoader } from "@react-three/fiber";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-// per three fiber
+import { Canvas } from "@react-three/fiber";
+// import { Environment } from "@react-three/drei";
+import Active2 from "./components/Active2";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  SoftShadows,
-  Float,
-  CameraControls,
-  Sky,
-  PerformanceMonitor,
-} from "@react-three/drei";
+import Overlay from "./components/Overlay";
 
-// performance
-import { Perf } from "r3f-perf";
-
-import { easing } from "maath";
-
-import { OrbitControls } from "@react-three/drei";
+import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
+import { BlurPass, Resizer, KernelSize, Resolution } from "postprocessing";
 
 function App() {
+  const overlay = useRef();
+  const caption = useRef();
+  const scroll = useRef(0);
+
   axios.defaults.withCredentials = true;
   axios.defaults.withXSRFToken = true;
 
@@ -68,28 +60,47 @@ function App() {
   }, [dispatch]);
 
   // per importare modello
-  const Model = () => {
-    const gltf = useLoader(GLTFLoader, "/api/download-model");
-    return (
-      <>
-        <primitive object={gltf.scene} scale={1} />
-      </>
-    );
-  };
+  // const Model = () => {
+  //   const gltf = useLoader(GLTFLoader, "/api/download-model");
+  //   return (
+  //     <>
+  //       <primitive object={gltf.scene} scale={1} />
+  //     </>
+  //   );
+  // };
 
   return (
     loaded && (
       <BrowserRouter>
-        <TopNav />
-        {/* <div className="App">
-          <Canvas camera={{ fov: 64, position: [-2, 2, 0] }}>
-            <Suspense fallback={null}>
-              <ambientLight intensity={5} />
-              <OrbitControls enableZoom={true} />
-              <Model />
-            </Suspense>
-          </Canvas>
-        </div> */}
+        {/* <TopNav /> */}
+
+        <Canvas
+        // shadows
+        // eventSource={document.getElementById("root")}
+        // eventPrefix="client"
+        >
+          {/* <ambientLight intensity={1} /> */}
+          {/* <Suspense fallback={null}> */}
+          {/* <Model scroll={scroll} /> */}
+          <Active2 scroll={scroll} />
+          {/* <EffectComposer smaa></EffectComposer> */}
+          <EffectComposer>
+            <Bloom
+              intensity={0.1} // The bloom intensity.
+              // blurPass={undefined} // A blur pass.
+              // kernelSize={KernelSize.LARGE} // blur kernel size
+              // luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+              // luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+              // mipmapBlur={false} // Enables or disables mipmap blur.
+              // resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+              // resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+            />
+            {/* <SSAO /> */}
+          </EffectComposer>
+          {/* <Environment preset="city" /> */}
+          {/* </Suspense> */}
+        </Canvas>
+        <Overlay ref={overlay} caption={caption} scroll={scroll} />
 
         <div className="container">
           <Routes>
@@ -98,6 +109,9 @@ function App() {
             <Route path="/model3d/:id/:model" element={<ViewModel />} />
             {/* details mostra dettagli */}
             <Route path="/details/:id" element={<DetailsPage />} />
+
+            <Route path="/prova" element={<AppProva />} />
+            <Route path="/prova2" element={<AppProvaDue />} />
 
             {/* rotte accessibili solo se sei loggato */}
             <Route element={<ProtectedRoutes />}>
