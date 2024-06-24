@@ -29,7 +29,7 @@ import AppProvaDue from "./components/AppProvaDue";
 
 import { Canvas } from "@react-three/fiber";
 // import { Environment } from "@react-three/drei";
-import Active2 from "./components/Active2";
+import Optim3 from "./components/Optim3";
 
 import Overlay from "./components/Overlay";
 
@@ -59,16 +59,6 @@ function App() {
       .finally(() => setLoaded(true));
   }, [dispatch]);
 
-  // per importare modello
-  // const Model = () => {
-  //   const gltf = useLoader(GLTFLoader, "/api/download-model");
-  //   return (
-  //     <>
-  //       <primitive object={gltf.scene} scale={1} />
-  //     </>
-  //   );
-  // };
-
   return (
     loaded && (
       <BrowserRouter>
@@ -82,7 +72,7 @@ function App() {
           {/* <ambientLight intensity={1} /> */}
           {/* <Suspense fallback={null}> */}
           {/* <Model scroll={scroll} /> */}
-          <Active2 scroll={scroll} />
+          <Optim3 scroll={scroll} />
           {/* <EffectComposer smaa></EffectComposer> */}
           <EffectComposer>
             <Bloom

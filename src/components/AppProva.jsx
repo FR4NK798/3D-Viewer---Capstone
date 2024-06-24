@@ -1,7 +1,7 @@
 import React, { Suspense, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
-import Active2 from "./Active2";
+import Optim3 from "./Optim3";
 
 import Overlay from "./Overlay";
 
@@ -23,7 +23,7 @@ const AppProva = () => {
         <ambientLight intensity={1} />
         <Suspense fallback={null}>
           {/* <Model scroll={scroll} /> */}
-          <Active2 scroll={scroll} />
+          <Optim3 scroll={scroll} />
           <EffectComposer smaa>
             <Bloom
               intensity={0.1} // The bloom intensity.
