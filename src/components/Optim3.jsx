@@ -224,6 +224,9 @@ export default function Model({ scroll, ...props }) {
               material={materials["Material.034"]}
             />
             <mesh
+              castShadow
+              material-toneMapped={false}
+              material-emissiveIntensity={10}
               name="Circle002_3"
               geometry={nodes.Circle002_3.geometry}
               material={materials["NEON BLU.001"]}
@@ -376,6 +379,9 @@ export default function Model({ scroll, ...props }) {
             />
           </group>
           <mesh
+            castShadow
+            material-toneMapped={false}
+            material-emissiveIntensity={10}
             name="logo"
             geometry={nodes.logo.geometry}
             material={materials.NEONBLU}
@@ -384,24 +390,36 @@ export default function Model({ scroll, ...props }) {
             scale={0.617}
           />
           <mesh
+            castShadow
+            material-toneMapped={false}
+            material-emissiveIntensity={10}
             name="neon"
             geometry={nodes.neon.geometry}
             material={materials["NEON ROSSO.001"]}
             position={[-2.255, 5.385, 0.902]}
           />
           <mesh
+            castShadow
+            material-toneMapped={false}
+            material-emissiveIntensity={10}
             name="neonrosso"
             geometry={nodes.neonrosso.geometry}
             material={materials.NEONROSSO}
             position={[-0.137, 0.154, -2.3]}
           />
           <mesh
+            castShadow
+            material-toneMapped={false}
+            material-emissiveIntensity={10}
             name="neonrosso1"
             geometry={nodes.neonrosso1.geometry}
             material={materials.NEONROSSO}
             position={[-0.137, -0.147, -2.3]}
           />
           <mesh
+            castShadow
+            material-toneMapped={false}
+            material-emissiveIntensity={10}
             name="neonrosso2"
             geometry={nodes.neonrosso2.geometry}
             material={materials.NEONROSSO}
@@ -409,6 +427,9 @@ export default function Model({ scroll, ...props }) {
           />
           <group name="neontetto" position={[0.442, 1.264, 0.124]}>
             <mesh
+              castShadow
+              material-toneMapped={false}
+              material-emissiveIntensity={10}
               name="Cube012"
               geometry={nodes.Cube012.geometry}
               material={materials.NEONROSSO}
@@ -514,6 +535,9 @@ export default function Model({ scroll, ...props }) {
           </group>
           <mesh
             name="Sphere007"
+            castShadow
+            material-toneMapped={false}
+            material-emissiveIntensity={10}
             geometry={nodes.Sphere007.geometry}
             material={materials["vetro luci.001"]}
             position={[-4.525, -0.175, -0.351]}

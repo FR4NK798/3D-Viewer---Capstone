@@ -1,10 +1,8 @@
-// import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-// import FetchComponent from "./components/FetchComponent";
 import axios from "axios";
 import { useEffect, useState, useRef, Suspense } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { LOGIN } from "./redux/actions";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoutes from "./components/ProtectedRoutes";
@@ -19,14 +17,6 @@ import Dashboard from "./components/Dashboard";
 import ViewModel from "./components/ViewModel";
 import AddModel from "./components/AddModel";
 import EditModel from "./components/EditModel";
-
-import AppProva from "./components/AppProva";
-import AppProvaDue from "./components/AppProvaDue";
-
-// per importare modello
-// import { useLoader } from "@react-three/fiber";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
 import { Canvas } from "@react-three/fiber";
 // import { Environment } from "@react-three/drei";
 import Optim3 from "./components/Optim3";
@@ -99,9 +89,6 @@ function App() {
             <Route path="/model3d/:id/:model" element={<ViewModel />} />
             {/* details mostra dettagli */}
             <Route path="/details/:id" element={<DetailsPage />} />
-
-            <Route path="/prova" element={<AppProva />} />
-            <Route path="/prova2" element={<AppProvaDue />} />
 
             {/* rotte accessibili solo se sei loggato */}
             <Route element={<ProtectedRoutes />}>

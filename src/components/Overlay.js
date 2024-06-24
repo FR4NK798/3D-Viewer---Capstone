@@ -13,7 +13,15 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "4000vh" }}>
       <div class="dot">
         <h1>Welcome</h1>
-        pagina 1
+        <p>
+          Benvenuti nel progetto Capstone di fine corso di Epicode: ThreeD
+          Viewer Il seguente progetto è stato realizzato in React, per la
+          tecnologia Front-end. E ho usato Laravel per la parte Back-end, per la
+          creazione delle API. Nel corso di questo Capstone ho riscoperto
+          l'amore per la modellazione 3D. La parte visiva del Front-end è stata
+          realizzata con la libreria: React-Three-Fiber, che è un render ThreeJs
+          per React.
+        </p>
       </div>
     </div>
     <div style={{ height: "400vh" }}>
