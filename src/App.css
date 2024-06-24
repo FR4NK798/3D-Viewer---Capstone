@@ -43,7 +43,7 @@ body {
 }
 
 .caption {
-  pointer-events: none;
+  pointer-events: all;
   position: fixed;
   top: 0;
   right: 0;
@@ -57,7 +57,7 @@ body {
 }
 
 .dot {
-  pointer-events: none;
+  pointer-events: all;
   position: sticky;
   top: 0px;
   display: inline-block;
@@ -71,7 +71,7 @@ body {
 }
 
 .dot > h1 {
-  -webkit-font-smoothing: auto;
+  -webkit-font-smoothing: all;
   pointer-events: none;
   color: white;
   font-size: 5em;

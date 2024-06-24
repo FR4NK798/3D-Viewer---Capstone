@@ -54,64 +54,70 @@ function App() {
       <BrowserRouter>
         {/* <TopNav /> */}
 
-        <Canvas
-        // shadows
-        // eventSource={document.getElementById("root")}
-        // eventPrefix="client"
-        >
-          {/* <ambientLight intensity={1} /> */}
-          {/* <Suspense fallback={null}> */}
-          {/* <Model scroll={scroll} /> */}
-          <Optim3 scroll={scroll} />
-          {/* <EffectComposer smaa></EffectComposer> */}
-          <EffectComposer>
-            <Bloom
-              intensity={0.1} // The bloom intensity.
-              // blurPass={undefined} // A blur pass.
-              // kernelSize={KernelSize.LARGE} // blur kernel size
-              // luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
-              // luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
-              // mipmapBlur={false} // Enables or disables mipmap blur.
-              // resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
-              // resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
-            />
-            {/* <SSAO /> */}
-          </EffectComposer>
-          {/* <Environment preset="city" /> */}
-          {/* </Suspense> */}
-        </Canvas>
-        <Overlay ref={overlay} caption={caption} scroll={scroll} />
+        {/* <div className="container"> */}
+        <Routes>
+          {/* rotte accessibili da tutti */}
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Canvas
+                // shadows
+                // eventSource={document.getElementById("root")}
+                // eventPrefix="client"
+                >
+                  {/* <ambientLight intensity={1} /> */}
+                  {/* <Suspense fallback={null}> */}
+                  {/* <Model scroll={scroll} /> */}
+                  <Optim3 scroll={scroll} />
+                  {/* <EffectComposer smaa></EffectComposer> */}
+                  <EffectComposer>
+                    <Bloom
+                      intensity={0.1} // The bloom intensity.
+                      // blurPass={undefined} // A blur pass.
+                      // kernelSize={KernelSize.LARGE} // blur kernel size
+                      // luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+                      // luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+                      // mipmapBlur={false} // Enables or disables mipmap blur.
+                      // resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+                      // resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+                    />
+                    {/* <SSAO /> */}
+                  </EffectComposer>
+                  {/* <Environment preset="city" /> */}
+                  {/* </Suspense> */}
+                </Canvas>
+                <Overlay ref={overlay} caption={caption} scroll={scroll} />
+              </>
+            }
+          />
+          <Route path="/model3d/:id/:model" element={<ViewModel />} />
+          {/* details mostra dettagli */}
+          <Route path="/details/:id" element={<DetailsPage />} />
 
-        <div className="container">
-          <Routes>
-            {/* rotte accessibili da tutti */}
-            <Route path="/" element={<Home />} />
-            <Route path="/model3d/:id/:model" element={<ViewModel />} />
+          {/* rotte accessibili solo se sei loggato */}
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+
             {/* details mostra dettagli */}
             <Route path="/details/:id" element={<DetailsPage />} />
+            {/* <Route path="/model3d/:id" element={<ViewModel />} /> */}
+            <Route path="/addModel" element={<AddModel />} />
 
-            {/* rotte accessibili solo se sei loggato */}
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/edit/:id/:model" element={<EditModel />} />
+          </Route>
 
-              {/* details mostra dettagli */}
-              <Route path="/details/:id" element={<DetailsPage />} />
-              {/* <Route path="/model3d/:id" element={<ViewModel />} /> */}
-              <Route path="/addModel" element={<AddModel />} />
+          {/* rotte accessibili solo se NON sei loggato */}
+          <Route element={<GuestRoutes />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
 
-              <Route path="/edit/:id/:model" element={<EditModel />} />
-            </Route>
-
-            {/* rotte accessibili solo se NON sei loggato */}
-            <Route element={<GuestRoutes />}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Route>
-
-            <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/404" />} />
-          </Routes>
-        </div>
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" />} />
+        </Routes>
+        {/* </div> */}
       </BrowserRouter>
     )
   );
