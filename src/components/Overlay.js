@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import { useSelector } from "react-redux";
 
 import Home from "./Home";
 import TopNav from "./TopNav.jsx";
@@ -6,6 +7,12 @@ import Dashboard from "./Dashboard";
 import { DisplayP3ColorSpace } from "three";
 
 const Overlay = forwardRef(({ caption, scroll }, ref) => {
+  let user = useSelector((state) => state.user);
+  let role = null;
+  if (user) {
+    role = user.role;
+  }
+
   // glich
 
   // fine glich
@@ -16,6 +23,14 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
         scroll.current =
           e.target.scrollTop / (e.target.scrollHeight - window.innerHeight);
         caption.current.innerText = scroll.current.toFixed(2);
+
+        // console.log("on scroll");
+        // console.log("event", e.target.className);
+        // console.log("e.target.scrollTop", e.target.scrollTop);
+        // console.log("e.target.scrollHeight", e.target.scrollHeight);
+        // console.log("window.innerHeight", window.innerHeight);
+        // console.log("scroll.current.toFixed(2)", scroll.current.toFixed(2));
+        // console.log("scroll", scroll);
       }}
       className="scroll"
     >
@@ -38,7 +53,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
           <div id="screen">
             <div className="screen-container">
               <div className="screen-wrapper">
-                <div className="screen-wrapper wobblex wobbley">
+                <div className="screen-wrapper wobblex wobbley overflow-y-scroll">
                   <h1 className="testo">Modelli online</h1>
                   <Home />
 
@@ -70,10 +85,20 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
         </div>
       </div>
       <div style={{ height: "300vh" }}>
-        <div className="dot dash">
-          <h1>Dashboard</h1>
-          <Dashboard />
-        </div>
+        {role === "admin" ? (
+          <div className="dot dash">
+            <Dashboard />
+          </div>
+        ) : role === "user" ? (
+          <div className="dot user">
+            <h1>Dashboard</h1>
+            <Dashboard />
+          </div>
+        ) : (
+          <div className="dot dash">
+            <Dashboard />
+          </div>
+        )}
       </div>
 
       <span className="caption" ref={caption}>

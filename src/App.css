@@ -88,23 +88,132 @@ body {
   margin-block-start: 20em;
 } */
 
+/* .dash {
+  width: 43em;
+  margin-left: 30em;
+  transform: perspective(1000px) rotate3d(1, 0, 0, 70deg) translate(0px, 440px);
+} */
+
+@media only screen and (min-width: 1501px) {
+  .infouser {
+    margin-block-start: 4em;
+    margin-inline-start: 25em;
+    transition: all 1s;
+  }
+  .dot {
+    max-width: 1000px;
+  }
+  .dash {
+    width: 30em;
+    margin-left: 35em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 770px);
+    transition: all 1s;
+  }
+
+  .trasl {
+    transform: translate(0px, -500px);
+  }
+  .user {
+    width: 30em;
+    margin-left: 35em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, -570px);
+
+    overflow-y: scroll;
+    height: 500px;
+    transition: all 1s;
+  }
+}
+
 @media only screen and (max-width: 1500px) {
   .infouser {
     margin-block-start: 4em;
     margin-inline-start: 17em;
+    transition: all 1s;
   }
   .dot {
     max-width: 1000px;
+  }
+  .dash {
+    width: 35em;
+    margin-left: 30em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 770px);
+    transition: all 1s;
+  }
+  .trasl {
+    transform: translate(0px, -500px);
+  }
+  .user {
+    width: 35em;
+    margin-left: 30em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 300px);
+
+    overflow-y: scroll;
+    height: 500px;
+    transition: all 1s;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .dash {
+    width: 30em;
+    margin-left: 30em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 770px);
+    transition: all 1s;
+  }
+  .infouser {
+    margin-block-start: 4em;
+    margin-inline-start: 25em;
+    transition: all 1s;
+  }
+  .trasl {
+    transform: translate(0px, -500px);
+  }
+  .user {
+    overflow-y: scroll;
+    height: 500px;
+
+    width: 30em;
+    margin-left: 30em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 300px);
+    transition: all 1s;
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .infouser {
     margin-block-start: 4em;
-    margin-inline-start: 12em;
+    margin-inline-start: 14em;
+    transition: all 1s;
   }
   .dot {
     max-width: 800px;
+  }
+
+  .dash {
+    width: 30em;
+    margin-left: 20em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 650px);
+    transition: all 1s;
+  }
+  .trasl {
+    transform: translate(0px, -300px);
+  }
+  .user {
+    overflow-y: scroll;
+    height: 500px;
+
+    width: 30em;
+    margin-left: 20em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 300px);
+    transition: all 1s;
   }
 }
 
@@ -112,6 +221,27 @@ body {
   .infouser {
     margin-block-start: 4em;
     margin-inline-start: 10em;
+    transition: all 1s;
+  }
+  .dash {
+    width: 30em;
+    margin-left: 13em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 770px);
+    transition: all 1s;
+  }
+  .trasl {
+    transform: translate(0px, -400px);
+  }
+  .user {
+    overflow-y: scroll;
+    height: 500px;
+
+    width: 30em;
+    margin-left: 13em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 250px);
+    transition: all 1s;
   }
 }
 
@@ -119,6 +249,27 @@ body {
   .infouser {
     margin-block-start: 4em;
     margin-inline-start: 9em;
+    transition: all 1s;
+  }
+  .dash {
+    width: 30em;
+    margin-left: 5em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 770px);
+    transition: all 1s;
+  }
+  .trasl {
+    transform: translate(0px, -400px);
+  }
+  .user {
+    overflow-y: scroll;
+    height: 500px;
+
+    width: 30em;
+    margin-left: 5em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 300px);
+    transition: all 1s;
   }
 }
 
@@ -126,6 +277,27 @@ body {
   .infouser {
     margin-block-start: 5em;
     margin-inline-start: 8em;
+    transition: all 1s;
+  }
+  .dash {
+    width: 30em;
+    margin-left: 5em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 750px);
+    transition: all 1s;
+  }
+  .trasl {
+    transform: translate(0px, -400px);
+  }
+  .user {
+    overflow-y: scroll;
+    height: 500px;
+
+    width: 30em;
+    margin-left: 5em;
+    transform: perspective(4000px) rotate3d(1, 0, 0, 60deg)
+      translate(0px, 300px);
+    transition: all 1s;
   }
 }
 
@@ -251,7 +423,7 @@ div {
 /* prova glich */
 
 canvas {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   top: 0;
   z-index: 9998;
@@ -264,13 +436,15 @@ canvas.snow {
 }
 
 #screen {
-  width: 100%;
+  width: 80%;
   height: 100%;
   background: transparent
-    linear-gradient(to bottom, #85908c1a 0%, #32343119 100%) repeat scroll 0 0;
+    linear-gradient(to bottom, #85908c0f 0%, #3234310d 100%) repeat scroll 0 0;
   background-size: cover;
 
-  box-shadow: 0px 0px 10px 15px #00000027;
+  box-shadow: 0px 0px 10px 35px #3e373727;
+  overflow-y: scroll;
+  overflow-x: clip;
 }
 
 .screen-container {
@@ -584,6 +758,75 @@ canvas.snow {
   color: red;
 }
 
-.dash {
-  transform: perspective(1000px) rotate3d(1, 0, 0, 45deg) translate(0px, 200px);
+input {
+  border-inline: none;
+  border-top: none;
+  background: #f0f8ff00;
+  border-bottom: 1px dotted;
+  border-radius: 0;
+  font-size: large;
+  transition: all 0.7s;
+}
+.log {
+  background-color: #fefefe29;
+  margin-inline: auto;
+  border-radius: 1em;
+  padding-block: 2em;
+  padding-inline: 3em;
+  box-shadow: 10px 10px 10px #00000024;
+  text-align: center;
+}
+
+input:focus-visible {
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  scale: 1.05;
+  transition: all 0.7s;
+}
+
+::placeholder {
+  color: rgb(50, 50, 50);
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Edge 12-18 */
+  color: rgb(50, 50, 50);
+}
+
+.mod {
+  text-decoration: none;
+  font-size: large;
+  font-weight: 500;
+}
+
+.scroll-color {
+  width: fit-content;
+}
+
+/* provascroll */
+
+.provascroll {
+  height: 100px;
+  background-color: brown;
+  overflow-y: scroll;
+}
+
+.stop {
+  height: 100px;
+  background-color: brown;
+  overflow-y: clip;
+}
+
+#btout {
+  width: 8em;
+  text-align: center;
+}
+
+#btout:hover {
+  cursor: pointer;
+}
+.tab {
+  overflow: scroll;
 }

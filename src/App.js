@@ -24,6 +24,7 @@ import Optim3 from "./components/Optim3";
 import Overlay from "./components/Overlay";
 
 import ProvaGli from "./components/ProvaGli";
+import ProvaScroll from "./components/ProvaScroll";
 
 import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 import { BlurPass, Resizer, KernelSize, Resolution } from "postprocessing";
@@ -60,7 +61,7 @@ function App() {
         <Routes>
           {/* rotte accessibili da tutti */}
           {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/gli" element={<ProvaGli />} />
+          <Route path="/provascroll" element={<ProvaScroll />} />
           <Route
             path="/"
             element={

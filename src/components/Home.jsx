@@ -47,7 +47,7 @@ const Home = () => {
           <>
             {models.map((model, i) => (
               <ul key={i}>
-                <Link to={`/details/${model.id}`} className="testo">
+                <Link to={`/details/${model.id}`} className="testo mod">
                   {" "}
                   {model.name}{" "}
                 </Link>
@@ -58,18 +58,20 @@ const Home = () => {
                   ) : (
                     <ul>
                       {model.users.map((user, i) => (
-                        <h3 className="testo">
+                        <h5 className="testo" key={i}>
                           {user.name}
                           <li className="testo">
-                            Stato :{" "}
-                            {model.status === "pending"
-                              ? "In Attesa"
-                              : model.status === "accepted"
-                              ? "Pubblicato"
-                              : "Non accettato"}{" "}
+                            <div className="fs-6">
+                              Stato :{" "}
+                              {model.status === "pending"
+                                ? "In Attesa"
+                                : model.status === "accepted"
+                                ? "Pubblicato"
+                                : "Non accettato"}{" "}
+                            </div>
                           </li>
                           <Button
-                            className="testo"
+                            className="testo me-2 mt-3"
                             variant="success"
                             onClick={() => {
                               accetta(model.id);
@@ -78,7 +80,7 @@ const Home = () => {
                             Accetta
                           </Button>
                           <Button
-                            className="testo"
+                            className="testo me-2 mt-3"
                             variant="danger"
                             onClick={() => {
                               rifiuta(model.id);
@@ -86,7 +88,7 @@ const Home = () => {
                           >
                             Rifiuta
                           </Button>
-                        </h3>
+                        </h5>
                       ))}
                     </ul>
                   )}
@@ -103,7 +105,7 @@ const Home = () => {
             {models.map((model, i) => (
               <div key={i}>
                 {model.status === "accepted" ? (
-                  <Link to={`/details/${model.id}`} className="testo">
+                  <Link to={`/details/${model.id}`} className="testo mod">
                     {" "}
                     {model.name}{" "}
                   </Link>

@@ -28,17 +28,21 @@ const TopNav = () => {
             <>
               <h1 className="menured">MENU DEL GIORNO</h1>
               <p>Piatto del giorno:</p>
-              <Link className="nav-link active btlog" to="/dashboard">
-                <span className="me-2 mt-2 mb-2 text-white">{user.name}</span>
+              <Link className="btlog mt-2 mb-2 me-2" to="/dashboard">
+                {user.name}
               </Link>
             </>
           ) : (
-            <span className="me-2 mt-2 mb-2 text-white">{user.name}</span>
+            <>
+              <h1 className="menured">MENU DEL GIORNO</h1>
+              <p>Piatto del giorno:</p>
+              <span className="btlog mt-4 mb-2 me-2">{user.name}</span>
+            </>
           )}
 
-          <button className="btlog mt-2 mb-2 me-2" onClick={logout}>
+          <div className="btlog mt-4 mb-2 me-2" id="btout" onClick={logout}>
             Logout
-          </button>
+          </div>
         </>
       ) : (
         <>

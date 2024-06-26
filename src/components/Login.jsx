@@ -59,38 +59,38 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 log">
       <Link to={`/`} className="logo">
         <h1>ThreeD Viewer</h1>
       </Link>
       <h2 className="mt-5 mb-4">Accedi</h2>
       <form onSubmit={(ev) => submitLogin(ev)} noValidate>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
+          {/* <label htmlFor="email" className="form-label">
             Email address
-          </label>
+          </label> */}
           <input
             type="email"
-            className="form-control"
+            // className="form-control"
             id="email"
             name="email"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.email}
-            placeholder="email@email.com"
+            placeholder="Email"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          {/* <label htmlFor="password" className="form-label">
             Password
-          </label>
+          </label> */}
           <input
             type="password"
-            className="form-control"
+            // className="form-control"
             id="password"
             name="password"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.password}
-            placeholder="Password1234"
+            placeholder="Password"
           />
         </div>
 
