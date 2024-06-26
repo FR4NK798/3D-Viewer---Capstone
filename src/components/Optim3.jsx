@@ -18,7 +18,7 @@ export default function Model({ scroll, ...props }) {
     actions["Animation"].time = THREE.MathUtils.lerp(
       actions["Animation"].time,
       actions["Animation"].getClip().duration * scroll.current,
-      0.5
+      0.05
     );
   });
 
@@ -36,7 +36,7 @@ export default function Model({ scroll, ...props }) {
         />
         <pointLight
           name="Point010"
-          intensity={1}
+          intensity={35}
           decay={2}
           color="#0090ff"
           position={[8.41, 4.923, -1.616]}
@@ -44,7 +44,7 @@ export default function Model({ scroll, ...props }) {
         />
         <pointLight
           name="Point011"
-          intensity={1}
+          intensity={35}
           decay={2}
           color="#0090ff"
           position={[1.754, 3.442, 2.461]}
@@ -77,69 +77,69 @@ export default function Model({ scroll, ...props }) {
             material={materials["met battiscopa"]}
           />
           <group name="strutt001" />
-          <pointLight
+          {/* <pointLight
             name="Point"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[5.056, -0.189, 2.717]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point002_1"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[2.816, -0.185, 2.766]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point003"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[-1.954, -0.19, 2.71]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point004"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[-4.317, -0.185, 2.71]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point005"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[-4.525, -0.175, -0.351]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point006"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[-3.226, -0.193, -0.351]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point007"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[-1.975, -0.151, -0.351]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point008"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[-0.872, -0.17, -0.351]}
             rotation={[-Math.PI / 2, 0, 0]}
           />
           <pointLight
             name="Point009"
-            intensity={1}
+            intensity={0}
             decay={2}
             position={[0.411, -0.161, -0.351]}
             rotation={[-Math.PI / 2, 0, 0]}
-          />
+          /> */}
           <mesh
             name="BezierCurve"
             geometry={nodes.BezierCurve.geometry}

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../redux/actions";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,11 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="container mt-4">
+      <Link to={`/`} className="logo">
+        <h1>ThreeD Viewer</h1>
+      </Link>
+      <h2 className="mt-5 mb-4">Accedi</h2>
       <form onSubmit={(ev) => submitLogin(ev)} noValidate>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -71,6 +76,7 @@ const Login = () => {
             name="email"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.email}
+            placeholder="email@email.com"
           />
         </div>
         <div className="mb-3">
@@ -84,23 +90,25 @@ const Login = () => {
             name="password"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.password}
+            placeholder="Password1234"
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        {/* <button type="submit" className="btn btn-primary mt-2"> */}
+        <button type="submit" className="mt-2 btLog">
           Login
         </button>
       </form>
 
-      <button
+      {/* <button
         className="btn btn-primary mt-3"
         onClick={() => {
           resetPassword();
         }}
       >
         Password dimenticata
-      </button>
-    </>
+      </button> */}
+    </div>
   );
 };
 

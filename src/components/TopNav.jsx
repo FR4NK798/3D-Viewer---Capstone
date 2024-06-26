@@ -21,32 +21,38 @@ const TopNav = () => {
   // console.log("user nav", user);
 
   return (
-    <Container>
+    <div class="infouser">
       {user ? (
         <>
           {user.role === "user" ? (
-            <Link className="nav-link active" to="/dashboard">
-              <span className="me-2 text-white">{user.name}</span>
-            </Link>
+            <>
+              <h1 className="menured">MENU DEL GIORNO</h1>
+              <p>Piatto del giorno:</p>
+              <Link className="nav-link active btlog" to="/dashboard">
+                <span className="me-2 mt-2 mb-2 text-white">{user.name}</span>
+              </Link>
+            </>
           ) : (
-            <span className="me-2 text-white">{user.name}</span>
+            <span className="me-2 mt-2 mb-2 text-white">{user.name}</span>
           )}
 
-          <button className="btn btn-primary" onClick={logout}>
+          <button className="btlog mt-2 mb-2 me-2" onClick={logout}>
             Logout
           </button>
         </>
       ) : (
         <>
-          <Link className="btn btn-primary me-2" to="/login">
+          <h1 className="menured">MENU DEL GIORNO</h1>
+          <p>Il menu oggi offre:</p>
+          <Link className="btlog mt-2 mb-2 me-2" to="/login">
             Login
           </Link>
-          <Link className="btn btn-primary" to="/register">
-            Register
+          <Link className="btlog mt-2 mb-2 me-2" to="/register">
+            Registrati
           </Link>
         </>
       )}
-    </Container>
+    </div>
   );
 };
 

@@ -3,8 +3,12 @@ import React, { forwardRef } from "react";
 import Home from "./Home";
 import TopNav from "./TopNav.jsx";
 import Dashboard from "./Dashboard";
+import { DisplayP3ColorSpace } from "three";
 
 const Overlay = forwardRef(({ caption, scroll }, ref) => {
+  // glich
+
+  // fine glich
   return (
     <div
       ref={ref}
@@ -13,12 +17,12 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
           e.target.scrollTop / (e.target.scrollHeight - window.innerHeight);
         caption.current.innerText = scroll.current.toFixed(2);
       }}
-      class="scroll"
+      className="scroll"
     >
       <div style={{ height: "4000vh" }}>
-        <div class="dot">
-          <h1>Welcome</h1>
-          <p>
+        <div className="dot tran">
+          <h1 className="diner">Welcome at ThreeD Viewer Diner</h1>
+          <p className="welcome">
             Benvenuti nel progetto Capstone di fine corso di Epicode: ThreeD
             Viewer Il seguente progetto è stato realizzato in React, per la
             tecnologia Front-end. E ho usato Laravel per la parte Back-end, per
@@ -30,31 +34,49 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
         </div>
       </div>
       <div style={{ height: "400vh" }}>
-        <div class="dot">
-          <h1>Modelli online</h1>
-          <Home />
+        <div className="dot">
+          <div id="screen">
+            <div className="screen-container">
+              <div className="screen-wrapper">
+                <div className="screen-wrapper wobblex wobbley">
+                  <h1 className="testo">Modelli online</h1>
+                  <Home />
+
+                  <div className="screen-wrapper"></div>
+                  <canvas className="snow"> </canvas>
+
+                  <canvas className="vcr"> </canvas>
+
+                  <div className="scanlines"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div style={{ height: "700vh" }}>
-        <div class="dot">
-          <h1>spazio vuoto</h1>
+        <div className="dot">
+          <p>
+            Scorrendo avanti, troverai la sezione di Login, registrazione e i
+            modelli caricati sul tuo profilo.
+          </p>
         </div>
       </div>
 
       <div style={{ height: "200vh" }}>
-        <div class="dot">
-          <h1>Login</h1>
+        <div className="dot">
+          {/* <h1>Login</h1> */}
           <TopNav />
         </div>
       </div>
       <div style={{ height: "300vh" }}>
-        <div class="dot">
-          <h1>Spazio vuoto</h1>
+        <div className="dot dash">
+          <h1>Dashboard</h1>
           <Dashboard />
         </div>
       </div>
 
-      <span class="caption" ref={caption}>
+      <span className="caption" ref={caption}>
         0.00
       </span>
     </div>

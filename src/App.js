@@ -23,6 +23,8 @@ import Optim3 from "./components/Optim3";
 
 import Overlay from "./components/Overlay";
 
+import ProvaGli from "./components/ProvaGli";
+
 import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 import { BlurPass, Resizer, KernelSize, Resolution } from "postprocessing";
 
@@ -58,14 +60,16 @@ function App() {
         <Routes>
           {/* rotte accessibili da tutti */}
           {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/gli" element={<ProvaGli />} />
           <Route
             path="/"
             element={
               <>
                 <Canvas
-                // shadows
-                // eventSource={document.getElementById("root")}
-                // eventPrefix="client"
+                  className="intro"
+                  // shadows
+                  // eventSource={document.getElementById("root")}
+                  // eventPrefix="client"
                 >
                   {/* <ambientLight intensity={1} /> */}
                   {/* <Suspense fallback={null}> */}
@@ -74,7 +78,7 @@ function App() {
                   {/* <EffectComposer smaa></EffectComposer> */}
                   <EffectComposer>
                     <Bloom
-                      intensity={0.1} // The bloom intensity.
+                      intensity={0.2} // The bloom intensity.
                       // blurPass={undefined} // A blur pass.
                       // kernelSize={KernelSize.LARGE} // blur kernel size
                       // luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.

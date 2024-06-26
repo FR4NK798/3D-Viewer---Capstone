@@ -47,17 +47,20 @@ const Home = () => {
           <>
             {models.map((model, i) => (
               <ul key={i}>
-                <Link to={`/details/${model.id}`}> {model.name} </Link>
+                <Link to={`/details/${model.id}`} className="testo">
+                  {" "}
+                  {model.name}{" "}
+                </Link>
                 <ul>
                   Utente autore modello
                   {model.users.length === 0 ? (
-                    <li>Nessun utente</li>
+                    <li className="testo">Nessun utente</li>
                   ) : (
                     <ul>
                       {model.users.map((user, i) => (
-                        <>
+                        <h3 className="testo">
                           {user.name}
-                          <li>
+                          <li className="testo">
                             Stato :{" "}
                             {model.status === "pending"
                               ? "In Attesa"
@@ -66,6 +69,7 @@ const Home = () => {
                               : "Non accettato"}{" "}
                           </li>
                           <Button
+                            className="testo"
                             variant="success"
                             onClick={() => {
                               accetta(model.id);
@@ -74,6 +78,7 @@ const Home = () => {
                             Accetta
                           </Button>
                           <Button
+                            className="testo"
                             variant="danger"
                             onClick={() => {
                               rifiuta(model.id);
@@ -81,7 +86,7 @@ const Home = () => {
                           >
                             Rifiuta
                           </Button>
-                        </>
+                        </h3>
                       ))}
                     </ul>
                   )}
@@ -98,7 +103,10 @@ const Home = () => {
             {models.map((model, i) => (
               <div key={i}>
                 {model.status === "accepted" ? (
-                  <Link to={`/details/${model.id}`}> {model.name} </Link>
+                  <Link to={`/details/${model.id}`} className="testo">
+                    {" "}
+                    {model.name}{" "}
+                  </Link>
                 ) : (
                   <div style={{ display: "none" }}>
                     {" "}
@@ -108,7 +116,7 @@ const Home = () => {
               </div>
             ))}
             {count.current === models.length ? (
-              <h5>Nessun modello Online</h5>
+              <h5 className="testo">Nessun modello Online</h5>
             ) : (
               <></>
             )}
@@ -121,13 +129,16 @@ const Home = () => {
       models && (
         <>
           {models.length === 0 ? (
-            <h5>Nessun modello Online</h5>
+            <h5 className="testo">Nessun modello Online</h5>
           ) : (
             <>
               {models.map((model, i) => (
                 <div key={i}>
                   {model.status === "accepted" ? (
-                    <Link to={`/details/${model.id}`}> {model.name} </Link>
+                    <Link to={`/details/${model.id}`} className="testo">
+                      {" "}
+                      {model.name}{" "}
+                    </Link>
                   ) : (
                     <div style={{ display: "none" }}>
                       {" "}
@@ -137,7 +148,7 @@ const Home = () => {
                 </div>
               ))}
               {count.current === models.length ? (
-                <h5>Nessun modello Online</h5>
+                <h5 className="testo">Nessun modello Online</h5>
               ) : (
                 <></>
               )}

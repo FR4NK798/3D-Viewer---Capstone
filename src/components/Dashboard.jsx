@@ -62,97 +62,90 @@ const Transcript = () => {
 
   // console.log("geometries user", models);
 
-  return (
-    user && (
-      <div>
-        <Link to={`/addModel`}>Aggiungi modello</Link>
-        <h1 className="my-2 text-white">Lista modelli</h1>
-        <Table
-          className="mt-4"
-          responsive
-          striped
-          bordered
-          hover
-          variant="dark"
-        >
-          <thead>
-            <tr>
-              <th>Nome</th>
+  return user ? (
+    <div>
+      <Link to={`/addModel`}>Aggiungi modello</Link>
+      <h1 className="my-2 text-white">Lista modelli</h1>
+      <Table className="mt-4" responsive striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>Nome</th>
 
-              <th colSpan={100}>Stato</th>
-            </tr>
-          </thead>
-          <tbody>
-            {models && (
-              <>
-                {models.map((model, i) => (
-                  <tr key={i}>
-                    <td class="align-middle">{model.name}</td>
+            <th colSpan={100}>Stato</th>
+          </tr>
+        </thead>
+        <tbody>
+          {models && (
+            <>
+              {models.map((model, i) => (
+                <tr key={i}>
+                  <td class="align-middle">{model.name}</td>
 
-                    {model.status === "accepted" ? (
-                      <td class="align-middle">Pubblicato</td>
-                    ) : model.status === "reject" ? (
-                      <>
-                        <td class="align-middle">Rifiutato</td>
-                        <td>
-                          <Button
-                            className="my-2"
-                            variant="warning"
-                            onClick={() => {
-                              rimanda(model.id);
-                            }}
-                          >
-                            Rimanda
-                          </Button>
-                        </td>
-                      </>
-                    ) : (
-                      <>
-                        <td class="align-middle">In attesa</td>
-                        <td>
-                          <Button
-                            className="my-2"
-                            variant="warning"
-                            onClick={() => {
-                              rimanda(model.id);
-                            }}
-                          >
-                            Rimanda
-                          </Button>
-                        </td>
-                      </>
-                    )}
-                    <td>
-                      <Button
-                        className="my-2"
-                        variant="danger"
-                        onClick={() => {
-                          deleteGeo(model.id);
-                        }}
-                      >
-                        Elimina
-                      </Button>
-                    </td>
-                    <td>
-                      <Link to={`/details/${model.id}`}>
-                        <button className="btn btn-info my-2">Dettagli</button>
-                      </Link>
-                    </td>
-                    <td>
-                      <Link to={`/edit/${model.id}/${JSON.stringify(model)}`}>
-                        <button className="btn btn-secondary my-2">
-                          Modifica
-                        </button>
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
-        </Table>
-      </div>
-    )
+                  {model.status === "accepted" ? (
+                    <td class="align-middle">Pubblicato</td>
+                  ) : model.status === "reject" ? (
+                    <>
+                      <td class="align-middle">Rifiutato</td>
+                      <td>
+                        <Button
+                          className="my-2"
+                          variant="warning"
+                          onClick={() => {
+                            rimanda(model.id);
+                          }}
+                        >
+                          Rimanda
+                        </Button>
+                      </td>
+                    </>
+                  ) : (
+                    <>
+                      <td class="align-middle">In attesa</td>
+                      <td>
+                        <Button
+                          className="my-2"
+                          variant="warning"
+                          onClick={() => {
+                            rimanda(model.id);
+                          }}
+                        >
+                          Rimanda
+                        </Button>
+                      </td>
+                    </>
+                  )}
+                  <td>
+                    <Button
+                      className="my-2"
+                      variant="danger"
+                      onClick={() => {
+                        deleteGeo(model.id);
+                      }}
+                    >
+                      Elimina
+                    </Button>
+                  </td>
+                  <td>
+                    <Link to={`/details/${model.id}`}>
+                      <button className="btn btn-info my-2">Dettagli</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={`/edit/${model.id}/${JSON.stringify(model)}`}>
+                      <button className="btn btn-secondary my-2">
+                        Modifica
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </>
+          )}
+        </tbody>
+      </Table>
+    </div>
+  ) : (
+    <p>Utente ancora non collegato</p>
   );
 };
 
