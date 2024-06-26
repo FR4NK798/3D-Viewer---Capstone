@@ -17,20 +17,14 @@ body,
   overflow: hidden;
 }
 
-@keyframes back-in {
+/* @keyframes back-in {
   0% {
     background: radial-gradient(#362424, #000000);
   }
   100% {
     background: radial-gradient(#d18a8a, #040944);
   }
-}
-
-#root {
-  overflow: auto;
-
-  animation: back-in 2s 5s both;
-}
+} */
 
 .scroll {
   position: absolute;
@@ -48,8 +42,8 @@ body {
   position: fixed;
   overflow: hidden;
   overscroll-behavior-y: none;
-  background-color: #101010;
-  background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
+  /* background-color: #101010; */
+  /* background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%); */
   /* font-family: "Inter var", sans-serif; */
   -webkit-font-smoothing: antialiased;
 }
@@ -382,13 +376,13 @@ div {
 
 @keyframes up-second {
   0% {
-    /* opacity: 0; */
+    opacity: 0;
     /* color: white; */
     /* background-color: black; */
   }
 
   100% {
-    /* opacity: 1; */
+    opacity: 1;
     translate: 0 -10em;
   }
 }
@@ -410,13 +404,12 @@ div {
   background-color: #00000093;
   box-shadow: 0px 0px 10px 10px #00000093;
 
-  animation: up 5s 3s both;
-  animation-delay: 7s;
+  animation: up 1s 2s both;
 }
 
-@media only screen and (min-width: 710px) {
+@media only screen and (max-width: 710px) {
   .welcome {
-    animation: up-second 1s 1s both;
+    animation: up-second 1s 2s both;
   }
 }
 
@@ -829,4 +822,63 @@ input:focus-visible {
 }
 .tab {
   overflow: scroll;
+}
+
+/* animazione body */
+
+.prima {
+  display: inline-block;
+  /* padding: 10em; */
+  position: relative;
+  background: linear-gradient(
+    140deg,
+    rgba(161, 196, 255, 1) 2%,
+    rgba(79, 139, 243, 1) 52%,
+    rgba(233, 170, 108, 1) 76%,
+    rgba(245, 211, 177, 1) 94%,
+    rgba(255, 251, 247, 1) 100%
+  );
+}
+.secondo:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    172deg,
+    rgba(0, 0, 0, 1) 2%,
+    rgba(16, 26, 74, 1) 41%,
+    rgba(28, 16, 94, 1) 54%,
+    rgba(74, 29, 11, 1) 76%,
+    rgba(80, 50, 14, 1) 90%,
+    rgba(25, 5, 54, 1) 100%
+  );
+  transition: opacity 0.5s ease-out;
+  z-index: 2;
+  animation: grad 3s 4s both;
+}
+
+@keyframes grad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.sopra {
+  position: relative;
+  z-index: 3;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.prima,
+.secondo,
+.sopra {
+  width: 100%;
+  height: 100%;
 }

@@ -65,36 +65,40 @@ function App() {
           <Route
             path="/"
             element={
-              <>
-                <Canvas
-                  className="intro"
-                  // shadows
-                  // eventSource={document.getElementById("root")}
-                  // eventPrefix="client"
-                >
-                  {/* <ambientLight intensity={1} /> */}
-                  {/* <Suspense fallback={null}> */}
-                  {/* <Model scroll={scroll} /> */}
-                  <Optim3 scroll={scroll} />
-                  {/* <EffectComposer smaa></EffectComposer> */}
-                  <EffectComposer>
-                    <Bloom
-                      intensity={0.2} // The bloom intensity.
-                      // blurPass={undefined} // A blur pass.
-                      // kernelSize={KernelSize.LARGE} // blur kernel size
-                      // luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
-                      // luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
-                      // mipmapBlur={false} // Enables or disables mipmap blur.
-                      // resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
-                      // resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
-                    />
-                    {/* <SSAO /> */}
-                  </EffectComposer>
-                  {/* <Environment preset="city" /> */}
-                  {/* </Suspense> */}
-                </Canvas>
-                <Overlay ref={overlay} caption={caption} scroll={scroll} />
-              </>
+              <div className="prima">
+                <div className="secondo">
+                  <div className="sopra">
+                    <Canvas
+                      className="intro"
+                      // shadows
+                      // eventSource={document.getElementById("root")}
+                      // eventPrefix="client"
+                    >
+                      {/* <ambientLight intensity={1} /> */}
+                      {/* <Suspense fallback={null}> */}
+                      {/* <Model scroll={scroll} /> */}
+                      <Optim3 scroll={scroll} />
+                      {/* <EffectComposer smaa></EffectComposer> */}
+                      <EffectComposer>
+                        <Bloom
+                          intensity={0.2} // The bloom intensity.
+                          // blurPass={undefined} // A blur pass.
+                          // kernelSize={KernelSize.LARGE} // blur kernel size
+                          // luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+                          // luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+                          // mipmapBlur={false} // Enables or disables mipmap blur.
+                          // resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+                          // resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+                        />
+                        {/* <SSAO /> */}
+                      </EffectComposer>
+                      {/* <Environment preset="city" /> */}
+                      {/* </Suspense> */}
+                    </Canvas>
+                    <Overlay ref={overlay} caption={caption} scroll={scroll} />
+                  </div>
+                </div>
+              </div>
             }
           />
           <Route path="/model3d/:id/:model" element={<ViewModel />} />
