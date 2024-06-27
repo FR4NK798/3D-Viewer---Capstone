@@ -68,7 +68,7 @@ const Transcript = () => {
   return user ? (
     role === "user" ? (
       <div>
-        <Link to={`/addModel`} className="testo mod">
+        <Link to={`/addModel`} className="testo mod agg">
           Aggiungi modello
         </Link>
         <h1 className="my-2 text-white">Lista modelli</h1>

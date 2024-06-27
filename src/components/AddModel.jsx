@@ -73,8 +73,22 @@ const AddModel = () => {
       });
   };
 
+  let site = window.location.href;
+
+  if (site.endsWith("addModel")) {
+    let hide = document.getElementById("root");
+    hide.classList.add("overflow-y-scroll");
+  } else {
+    let hide = document.getElementById("root");
+    hide.classList.remove("overflow-y-scroll");
+  }
+
   return (
-    <>
+    <div className="container mt-4 log">
+      <Link to={`/`} className="logo">
+        <h1>ThreeD Viewer</h1>
+      </Link>
+      <h2 className="mt-5 mb-4">Aggiungi nuovo modello 3D</h2>
       <div className="mb-3">
         <h1>Come importare modelli 3D in ThreeD Viewer</h1>
         <h2>Come esportare correttamente il modello da Blender</h2>
@@ -180,7 +194,7 @@ const AddModel = () => {
           Aggiungi modello
         </button>
       </form>
-    </>
+    </div>
   );
 };
 export default AddModel;

@@ -64,77 +64,62 @@ const EditModel = () => {
   console.log("details", details);
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          name="name"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.name}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="description" className="form-label">
-          Descrizione
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="description"
-          name="description"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.description}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="used_sw" className="form-label">
-          Software Usato
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="used_sw"
-          name="used_sw"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.used_sw}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="date" className="form-label">
-          Data
-        </label>
-        <input
-          type="date"
-          className="form-control"
-          id="date"
-          name="date"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.date}
-        />
-      </div>
+    <div className="container mt-4 log">
+      <Link to={`/`} className="logo">
+        <h1>ThreeD Viewer</h1>
+      </Link>
+      <h2 className="mt-5 mb-4">Modifica Modello 3D</h2>
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            name="name"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.name}
+            placeholder="Nome File"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="description"
+            name="description"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.description}
+            placeholder="Descrizione"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="used_sw"
+            name="used_sw"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.used_sw}
+            placeholder="Software usato"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="date"
+            className="form-control"
+            id="date"
+            name="date"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.date}
+            placeholder="Data"
+          />
+        </div>
 
-      {/* <Form.Group className="mb-3">
-        <Form.Label>Ruolo</Form.Label>
-        <Form.Select
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.role}
-          id="role"
-          name="role"
-        >
-          <option value="owner">Proprietario</option>
-          <option value="collaborator">Collaboratore</option>
-        </Form.Select>
-      </Form.Group> */}
-
-      <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
-        Modifica modello
-      </button>
-    </form>
+        <button type="submit" className="mt-2 btLog" onClick={handleSubmit}>
+          Modifica modello
+        </button>
+      </form>
+    </div>
   );
 };
 export default EditModel;

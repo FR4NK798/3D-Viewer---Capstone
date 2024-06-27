@@ -17,6 +17,10 @@ body,
   overflow: hidden;
 }
 
+#root {
+  background: radial-gradient(#d18a8a, #040944);
+}
+
 /* @keyframes back-in {
   0% {
     background: radial-gradient(#362424, #000000);
@@ -882,3 +886,28 @@ input:focus-visible {
   width: 100%;
   height: 100%;
 }
+/* .usdetail{
+  text-decoration: none;
+} */
+
+.comand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 2em;
+  width: 28em;
+  padding: 1em;
+}
+
+.up {
+  right: 0;
+  left: auto;
+}
+
+.agg {
+  font-size: xx-large;
+}
+
+/* #root {
+  overflow-y: scroll;
+} */

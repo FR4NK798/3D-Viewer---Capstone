@@ -67,7 +67,43 @@ const ViewModel = () => {
             <Model />
           </Suspense>
         </Canvas>
-        {/* </div> */}
+        <div className="comand log">
+          <div
+            className="fs-5"
+            id="visible"
+            onMouseOver={function classRem() {
+              // Change the button's background color
+              let hide = document.getElementById("hide");
+              hide.classList.remove("d-none");
+            }}
+            onMouseOut={function classAdd() {
+              // Change the button's background color
+              let hide = document.getElementById("hide");
+              hide.classList.add("d-none");
+            }}
+          >
+            Comandi:
+          </div>
+
+          <div className="d-none" id="hide">
+            <ul>
+              <li className="fs-6">
+                Premi e trascina con il Mouse per muoverti attorno all'oggetto.
+              </li>
+              <li className="fs-6">
+                Usa la rotella del Mouse o lo scorrimento sul Trackpad per
+                eseguire uno Zoom-in o uno Zoom-out.
+              </li>
+              <li className="fs-6">
+                Tenendo premuto Alt e Mouse, ti permtte di muoverti nello spazio
+                circostante.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="comand up log">
+          Per visualizzare i comandi, passa il Mouse sopra la sezione Comandi.
+        </div>
       </>
     )
   );

@@ -50,6 +50,16 @@ function App() {
       )
       .catch((err) => console.log(err))
       .finally(() => setLoaded(true));
+
+    let site = window.location.href;
+
+    if (site.endsWith("addModel")) {
+      let hide = document.getElementById("root");
+      hide.classList.add("overflow-y-scroll");
+    } else {
+      let hide = document.getElementById("root");
+      hide.classList.remove("overflow-y-scroll");
+    }
   }, [dispatch]);
 
   return (

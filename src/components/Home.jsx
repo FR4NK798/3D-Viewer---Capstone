@@ -103,7 +103,7 @@ const Home = () => {
         models && (
           <>
             {models.map((model, i) => (
-              <div key={i}>
+              <ul key={i}>
                 {model.status === "accepted" ? (
                   <Link to={`/details/${model.id}`} className="testo mod">
                     {" "}
@@ -115,7 +115,7 @@ const Home = () => {
                     {(count.current = count.current + 1)}
                   </div>
                 )}
-              </div>
+              </ul>
             ))}
             {count.current === models.length ? (
               <h5 className="testo">Nessun modello Online</h5>
@@ -137,7 +137,7 @@ const Home = () => {
               {models.map((model, i) => (
                 <div key={i}>
                   {model.status === "accepted" ? (
-                    <Link to={`/details/${model.id}`} className="testo">
+                    <Link to={`/details/${model.id}`} className="testo mod">
                       {" "}
                       {model.name}{" "}
                     </Link>
