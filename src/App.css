@@ -408,7 +408,7 @@ div {
   background-color: #00000093;
   box-shadow: 0px 0px 10px 10px #00000093;
 
-  animation: up 1s 2s both;
+  animation: up 2s 5s both;
 }
 
 @media only screen and (max-width: 710px) {
@@ -911,3 +911,46 @@ input:focus-visible {
 /* #root {
   overflow-y: scroll;
 } */
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-input {
+  width: 13rem;
+  white-space: break-spaces;
+  color: #323232;
+}
+
+.custom-file-input::before {
+  content: "Seleziona file";
+  color: rgb(4, 16, 236);
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f949, #e3e3e349);
+  border: none;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 2px 2px #0cbdf8;
+  font-weight: 700;
+  font-size: 10pt;
+
+  margin: 0.5em;
+  transition: all 150ms;
+}
+.custom-file-input:hover::before {
+  box-shadow: 0px 0px 17px blue;
+  color: #09c3f7;
+  text-shadow: 2px 2px #0d6f8a;
+  transform: scale(1.02);
+  transition: all 150ms;
+}
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}

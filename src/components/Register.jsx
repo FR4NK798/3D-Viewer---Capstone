@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../redux/actions";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -59,61 +60,53 @@ const Register = () => {
   };
 
   return (
-    // <form method="POST" action="....." novalidate enctype='multipart/form-data'> // se fatto in Blade
-    <form onSubmit={(ev) => submitLogin(ev)} noValidate>
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          name="name"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.name}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Email address
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.email}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">
-          Password
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="password"
-          name="password"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.password}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password_confirmation" className="form-label">
-          Conferma password
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="password_confirmation"
-          name="password_confirmation"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.password_confirmation}
-        />
-      </div>
-      {/* <div className="mb-3">
+    <div className="container mt-4 log">
+      <Link to={`/`} className="logo">
+        <h1>ThreeD Viewer</h1>
+      </Link>
+      <h2 className="mt-5 mb-4">Registrati</h2>
+      <form onSubmit={(ev) => submitLogin(ev)} noValidate>
+        <div className="mb-3">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.name}
+            placeholder="Nome"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.email}
+            placeholder="Email"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.password}
+            placeholder="Password"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="password"
+            id="password_confirmation"
+            name="password_confirmation"
+            onChange={(ev) => updateInputValue(ev)}
+            value={formData.password_confirmation}
+            placeholder="Conferma password"
+          />
+        </div>
+        {/* <div className="mb-3">
                 <label htmlFor="profile_img" className="form-label">
                     Profile image
                 </label>
@@ -126,10 +119,11 @@ const Register = () => {
                     value={formData.profile_img}
                 />
             </div> */}
-      <button type="submit" className="btn btn-primary">
-        Register
-      </button>
-    </form>
+        <button type="submit" className="mt-2 btLog">
+          Registrati
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -73,7 +73,6 @@ const EditModel = () => {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
             id="name"
             name="name"
             onChange={(ev) => updateInputValue(ev)}
@@ -84,7 +83,6 @@ const EditModel = () => {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
             id="description"
             name="description"
             onChange={(ev) => updateInputValue(ev)}
@@ -95,7 +93,6 @@ const EditModel = () => {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
             id="used_sw"
             name="used_sw"
             onChange={(ev) => updateInputValue(ev)}
@@ -106,7 +103,6 @@ const EditModel = () => {
         <div className="mb-3">
           <input
             type="date"
-            className="form-control"
             id="date"
             name="date"
             onChange={(ev) => updateInputValue(ev)}

@@ -89,7 +89,7 @@ const AddModel = () => {
         <h1>ThreeD Viewer</h1>
       </Link>
       <h2 className="mt-5 mb-4">Aggiungi nuovo modello 3D</h2>
-      <div className="mb-3">
+      <div className="mb-3 text-start">
         <h1>Come importare modelli 3D in ThreeD Viewer</h1>
         <h2>Come esportare correttamente il modello da Blender</h2>
         <p>
@@ -123,74 +123,60 @@ const AddModel = () => {
         </p>
         <img src={infoExport} alt="" />
       </div>
-      <form onSubmit={submitLogin} noValidate>
+      <form onSubmit={submitLogin} noValidate className="text-start">
         <div className="mb-3">
-          <label htmlFor="geometry" className="form-label">
-            Modello
-          </label>
           <input
-            className="form-control"
             type="file"
             id="geometry"
             name="geometry"
+            className="custom-file-input"
             onChange={(ev) => updateImageField(ev)}
             value={formData.geometry}
+            placeholder="File modello 3D"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Nome modello
-          </label>
           <input
             type="text"
-            className="form-control"
             id="name"
             name="name"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.name}
+            placeholder="Nome modello"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">
-            Descrizione
-          </label>
           <input
             type="text"
-            className="form-control"
             id="description"
             name="description"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.description}
+            placeholder="Descrizione"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="used_sw" className="form-label">
-            Software Usato
-          </label>
           <input
             type="text"
-            className="form-control"
             id="used_sw"
             name="used_sw"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.used_sw}
+            placeholder="Software usato"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="date" className="form-label">
-            Data di creazione
-          </label>
           <input
             type="date"
-            className="form-control"
             id="date"
             name="date"
             onChange={(ev) => updateInputValue(ev)}
             value={formData.date}
+            placeholder="Data di creazione"
           />
         </div>
 
-        <button type="submit" className="btn btn-primary" onClick={submitLogin}>
+        <button type="submit" className="mt-2 btLog" onClick={submitLogin}>
           Aggiungi modello
         </button>
       </form>
