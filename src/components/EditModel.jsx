@@ -38,6 +38,7 @@ const EditModel = () => {
       );
       console.log("Model info updated successfully:", response.data);
     } catch (error) {
+      alert("Errore nella compilazione o compilare tutti i campi");
       console.error("Error updating the model info:", error);
     }
   };

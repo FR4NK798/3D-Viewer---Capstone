@@ -954,3 +954,29 @@ input:focus-visible {
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
+.user {
+  padding-inline: 0px;
+}
+
+#upid {
+  position: absolute;
+  top: 2em;
+  right: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 1250px) {
+  #uplogo {
+    left: 0;
+    top: 80%;
+    right: 0;
+  }
+  #upid {
+    position: absolute;
+    bottom: 8em;
+    top: 78%;
+    right: 0;
+    left: 0;
+  }
+}

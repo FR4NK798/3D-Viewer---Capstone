@@ -44,7 +44,7 @@ const ViewModel = () => {
   console.log("objId dopo", objId);
   url = `/api/download-model/${userId}/${objId}`;
   console.log("url model", url);
-  // per importare modello
+
   const Model = () => {
     const gltf = useLoader(GLTFLoader, url);
     return (
@@ -97,9 +97,12 @@ const ViewModel = () => {
             </ul>
           </div>
         </div>
-        <div className="comand up log">
+        <div className="comand up log" id="uplogo">
           Per visualizzare i comandi, passa il Mouse sopra la sezione Comandi.
         </div>
+        <Link to={`/`} className="logo up" id="upid">
+          <h1>ThreeD Viewer</h1>
+        </Link>
       </>
     )
   );

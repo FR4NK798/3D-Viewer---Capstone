@@ -108,7 +108,9 @@ const AddModel = () => {
           Puoi decidere quale specifico oggetto esportare, nella maggior parte
           della situazioni, le impostazioni di default vanno più che bene.
         </p>
-        <img src={infoExport} alt="" />
+        <div>
+          <img src={infoExport} alt="" className="w-100" />
+        </div>
       </div>
       <form onSubmit={submitLogin} noValidate className="text-start">
         <div className="mb-3">
@@ -162,10 +164,11 @@ const AddModel = () => {
             placeholder="Data di creazione"
           />
         </div>
-
-        <button type="submit" className="mt-2 btLog" onClick={submitLogin}>
-          Aggiungi modello
-        </button>
+        <div className="text-center">
+          <button type="submit" className="mt-2 btLog" onClick={submitLogin}>
+            Aggiungi modello
+          </button>
+        </div>
       </form>
     </div>
   );
