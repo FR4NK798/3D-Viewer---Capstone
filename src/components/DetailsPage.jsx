@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
-// pagina che mostra dettagli geometria
-
 const FacultyPage = () => {
-  const [course, setCourse] = useState(null); // null buon candidato
   const [details, setDetails] = useState(null); // null buon candidato
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // fetch(`/api/v1/courses/${id}`)
-
     fetch(`/api/geometries/${id}`)
       .then((res) => {
         if (!res.ok) navigate("/404");
@@ -19,7 +14,6 @@ const FacultyPage = () => {
       })
       .then((data) => {
         console.log("dettagli geometria", data);
-        // setCourse(data.data);
         setDetails(data.data);
       });
   }, [id]);

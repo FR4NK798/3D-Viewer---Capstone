@@ -36,9 +36,6 @@ const Home = () => {
       .catch((err) => navigate("/"));
   }, [refesh]);
 
-  // console.log("models", models);
-  // console.log("user", user);
-
   if (models && user) {
     if (user.role === "admin") {
       console.log("admin");

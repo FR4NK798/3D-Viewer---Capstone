@@ -1,28 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { parsePath, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-
 import { useDispatch, useSelector } from "react-redux";
-import { LOGIN } from "../redux/actions";
 import Table from "react-bootstrap/Table";
 
 const Transcript = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [models, setModels] = useState([]);
   const [refesh, setRefesh] = useState(false);
 
   const user = useSelector((state) => state.user);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-    // profile_img: '',
-  });
 
   useEffect(() => {
     axios
@@ -33,15 +21,10 @@ const Transcript = () => {
         console.log("sei in dashboard");
       })
       .catch((err) => navigate("/"));
-
-    // console.log("course", course);
-    // console.log("id", user.id);
   }, [refesh]);
 
   const deleteGeo = (id) => {
     console.log("premuto delete");
-
-    // gli indirizzi relativi, con il proxy attivo fanno la richiesta a http://localhost:8000/login mascherandolo come indirizzo nello stesso host di react (che nel nostro caso è http://localhost:3000/login)
     axios.delete(`/api/v1/geometries/${id}`).then((res) => {
       console.log("res delete", res);
       setRefesh(!refesh);
@@ -49,7 +32,6 @@ const Transcript = () => {
   };
 
   const rimanda = (id) => {
-    // gli indirizzi relativi, con il proxy attivo fanno la richiesta a http://localhost:8000/login mascherandolo come indirizzo nello stesso host di react (che nel nostro caso è http://localhost:3000/login)
     axios.post(`api/v1/geometries/${id}/resend`).then((res) => {
       console.log("rimanda richiesta pubblicazione");
       setRefesh(!refesh);
@@ -62,8 +44,6 @@ const Transcript = () => {
     console.log("user dashbord", user_id);
     console.log("user role", role);
   }
-
-  // console.log("geometries user", models);
 
   return user ? (
     role === "user" ? (
@@ -165,5 +145,3 @@ const Transcript = () => {
 };
 
 export default Transcript;
-
-// rafcp

@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import Home from "./Home";
 import TopNav from "./TopNav.jsx";
 import Dashboard from "./Dashboard";
-import { DisplayP3ColorSpace } from "three";
 
 const Overlay = forwardRef(({ caption, scroll }, ref) => {
   let user = useSelector((state) => state.user);
@@ -13,9 +12,6 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
     role = user.role;
   }
 
-  // glich
-
-  // fine glich
   return (
     <div
       ref={ref}
@@ -23,14 +19,6 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
         scroll.current =
           e.target.scrollTop / (e.target.scrollHeight - window.innerHeight);
         caption.current.innerText = scroll.current.toFixed(2);
-
-        // console.log("on scroll");
-        // console.log("event", e.target.className);
-        // console.log("e.target.scrollTop", e.target.scrollTop);
-        // console.log("e.target.scrollHeight", e.target.scrollHeight);
-        // console.log("window.innerHeight", window.innerHeight);
-        // console.log("scroll.current.toFixed(2)", scroll.current.toFixed(2));
-        // console.log("scroll", scroll);
       }}
       className="scroll"
     >
@@ -69,7 +57,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
           </div>
         </div>
       </div>
-      <div style={{ height: "700vh" }}>
+      <div style={{ height: "900vh" }}>
         <div className="dot">
           <p>
             Scorrendo avanti, troverai la sezione di Login, registrazione e i
@@ -84,7 +72,8 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
           <TopNav />
         </div>
       </div>
-      <div style={{ height: "300vh" }}>
+      <div style={{ height: "200vh" }}></div>
+      <div style={{ height: "100vh" }}>
         {role === "admin" ? (
           <div className="dot dash">
             <Dashboard />

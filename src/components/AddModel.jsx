@@ -1,8 +1,6 @@
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Form from "react-bootstrap/Form";
 import infoExport from "../infoexpo.png";
 
 const AddModel = () => {
@@ -14,7 +12,6 @@ const AddModel = () => {
     description: "",
     used_sw: "",
     date: "",
-    // role: "owner",
   });
 
   const updateInputValue = (ev) => {
@@ -31,28 +28,21 @@ const AddModel = () => {
 
   const submitLogin = (ev) => {
     ev.preventDefault();
-    // gli indirizzi relativi, con il proxy attivo fanno la richiesta a http://localhost:8000/login mascherandolo come indirizzo nello stesso host di react (che nel nostro caso è http://localhost:3000/login)
     axios
       .get("/sanctum/csrf-cookie")
       .then(() => {
         const body = new FormData();
         body.append("geometry", profileImage); // TODO: verify this
-
-        // body.append("geometry_path", formData.geometry_path);
         body.append("name", formData.name);
         body.append("description", formData.description);
         body.append("used_sw", formData.used_sw);
         body.append("date", formData.date);
-        // body.append("role", formData.role);
         return axios.post("/api/upload-model", body, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
-        console.log("primo then");
       })
-
-      // .then(() => axios.get("/api/user"))
       .then((res) => {
         console.log("res", res);
         alert(
@@ -63,13 +53,10 @@ const AddModel = () => {
 
           navigate("/dashboard");
         }, 1250);
-
-        // salvare i dati dello user nel Redux state
       })
       .catch((err) => {
         console.log(err);
         alert("Compilare tutti i campi");
-        // setErrors(err.response.data.errors);
       });
   };
 

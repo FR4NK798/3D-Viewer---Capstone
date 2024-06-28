@@ -1,16 +1,12 @@
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Form from "react-bootstrap/Form";
+import { useSelector } from "react-redux";
 
 const EditModel = () => {
   const [details, setDetails] = useState(null); // null buon candidato
-  const [geoId, setGeoId] = useState(null); // null buon candidato
-  //   const [model, setModel] = useState(null); // null buon candidato
   const { id } = useParams();
   const { model } = useParams();
-  const navigate = useNavigate();
   const [obj, setObj] = useState(JSON.parse(model));
 
   const [formData, setFormData] = useState({
@@ -18,28 +14,13 @@ const EditModel = () => {
     description: obj.description,
     used_sw: obj.used_sw,
     date: obj.date,
-    // role: obj.role,
   });
   const user = useSelector((state) => state.user);
 
   console.log("user", user);
-
   console.log("id fornito da dashboard", id);
   console.log("model fornito da dashboard", JSON.parse(model));
   console.log("obj json parse", obj);
-
-  //   useEffect(() => {
-  //     fetch(`/api/v1/geometries/${id}`)
-  //       .then((res) => {
-  //         if (!res.ok) navigate("/404");
-  //         return res.json();
-  //       })
-  //       .then((data) => {
-  //         console.log("dettagli geometria", data.data);
-  //         setDetails(data.data);
-  //         setGeoId(data.data.id);
-  //       });
-  //   }, [id]);
 
   const updateInputValue = (ev) => {
     setFormData((oldFormData) => ({

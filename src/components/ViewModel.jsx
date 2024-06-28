@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -14,9 +14,8 @@ const ViewModel = () => {
   const [obj, setObj] = useState(JSON.parse(model));
   const [objId, setObjId] = useState(obj.id);
   const [userId, setUserId] = useState(obj.users[0].id);
-  const [details, setDetails] = useState(null); // null buon candidato
-  const [model3d, setModel3d] = useState(null); // null buon candidato
-  const [urlModel, setUrlModel] = useState(null); // null buon candidato
+  const [details, setDetails] = useState(null);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -37,7 +36,6 @@ const ViewModel = () => {
       .then((data) => {
         console.log("dettagli geometria", data.data.id);
         setDetails(data.data.id);
-        setModel3d(data.geometry_path);
       });
 
     console.log("objId", objId);
@@ -72,12 +70,10 @@ const ViewModel = () => {
             className="fs-5"
             id="visible"
             onMouseOver={function classRem() {
-              // Change the button's background color
               let hide = document.getElementById("hide");
               hide.classList.remove("d-none");
             }}
             onMouseOut={function classAdd() {
-              // Change the button's background color
               let hide = document.getElementById("hide");
               hide.classList.add("d-none");
             }}

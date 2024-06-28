@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 import { LOGIN } from "./redux/actions";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-import TopNav from "./components/TopNav";
-import Home from "./components/Home";
 import GuestRoutes from "./components/GuestRoutes";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -20,11 +18,7 @@ import EditModel from "./components/EditModel";
 import { Canvas } from "@react-three/fiber";
 // import { Environment } from "@react-three/drei";
 import Optim3 from "./components/Optim3";
-
 import Overlay from "./components/Overlay";
-
-import ProvaGli from "./components/ProvaGli";
-import ProvaScroll from "./components/ProvaScroll";
 
 import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 import { BlurPass, Resizer, KernelSize, Resolution } from "postprocessing";
@@ -65,13 +59,9 @@ function App() {
   return (
     loaded && (
       <BrowserRouter>
-        {/* <TopNav /> */}
-
-        {/* <div className="container"> */}
         <Routes>
           {/* rotte accessibili da tutti */}
           {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/provascroll" element={<ProvaScroll />} />
           <Route
             path="/"
             element={
@@ -84,9 +74,8 @@ function App() {
                       // eventSource={document.getElementById("root")}
                       // eventPrefix="client"
                     >
-                      {/* <ambientLight intensity={1} /> */}
                       {/* <Suspense fallback={null}> */}
-                      {/* <Model scroll={scroll} /> */}
+
                       <Optim3 scroll={scroll} />
                       {/* <EffectComposer smaa></EffectComposer> */}
                       <EffectComposer>

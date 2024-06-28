@@ -22,13 +22,11 @@ const Login = () => {
 
   const submitLogin = (ev) => {
     ev.preventDefault();
-    // gli indirizzi relativi, con il proxy attivo fanno la richiesta a http://localhost:8000/login mascherandolo come indirizzo nello stesso host di react (che nel nostro caso è http://localhost:3000/login)
     axios
       .get("/sanctum/csrf-cookie")
       .then(() => axios.post("/login", formData))
       .then(() => axios.get("/api/user"))
       .then((res) => {
-        // salvare i dati dello user nel Redux state
         dispatch({
           type: LOGIN,
           payload: res.data,
@@ -41,23 +39,6 @@ const Login = () => {
       });
   };
 
-  const resetPassword = () => {
-    // ev.preventDefault();
-    // gli indirizzi relativi, con il proxy attivo fanno la richiesta a http://localhost:8000/login mascherandolo come indirizzo nello stesso host di react (che nel nostro caso è http://localhost:3000/login)
-    axios
-      .get("/sanctum/csrf-cookie")
-      // .then(() => axios.post("/login", formData))
-      .then(() => axios.get("/api/forgot-password"))
-      .then((res) => {
-        console.log("res recupero password", res);
-        // salvare i dati dello user nel Redux state
-        // dispatch({
-        //   type: LOGIN,
-        //   payload: res.data,
-        // });
-      });
-  };
-
   return (
     <div className="container mt-4 log">
       <Link to={`/`} className="logo">
@@ -66,12 +47,8 @@ const Login = () => {
       <h2 className="mt-5 mb-4">Accedi</h2>
       <form onSubmit={(ev) => submitLogin(ev)} noValidate>
         <div className="mb-3">
-          {/* <label htmlFor="email" className="form-label">
-            Email address
-          </label> */}
           <input
             type="email"
-            // className="form-control"
             id="email"
             name="email"
             onChange={(ev) => updateInputValue(ev)}
@@ -80,12 +57,8 @@ const Login = () => {
           />
         </div>
         <div className="mb-3">
-          {/* <label htmlFor="password" className="form-label">
-            Password
-          </label> */}
           <input
             type="password"
-            // className="form-control"
             id="password"
             name="password"
             onChange={(ev) => updateInputValue(ev)}
@@ -93,21 +66,10 @@ const Login = () => {
             placeholder="Password"
           />
         </div>
-
-        {/* <button type="submit" className="btn btn-primary mt-2"> */}
         <button type="submit" className="mt-2 btLog">
           Login
         </button>
       </form>
-
-      {/* <button
-        className="btn btn-primary mt-3"
-        onClick={() => {
-          resetPassword();
-        }}
-      >
-        Password dimenticata
-      </button> */}
     </div>
   );
 };
