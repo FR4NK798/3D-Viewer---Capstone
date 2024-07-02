@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
+import Spinner from "react-bootstrap/Spinner";
 
 const Transcript = () => {
   const navigate = useNavigate();
@@ -16,10 +17,13 @@ const Transcript = () => {
     axios
       .get("/api/v1/dashboard")
       .then((data) => {
+        let hide = document.getElementById("spinOther");
+        hide.classList.add("d-none");
         setModels(data.data.data.geometries);
         console.log("data", data);
         console.log("sei in dashboard");
       })
+
       .catch((err) => navigate("/"));
   }, [refesh]);
 
@@ -61,6 +65,12 @@ const Transcript = () => {
             </tr>
           </thead>
           <tbody>
+            <Spinner
+              animation="border"
+              // variant="primary"
+              // className="d-none"
+              id="spinOther"
+            />
             {models && (
               <>
                 {models.map((model, i) => (

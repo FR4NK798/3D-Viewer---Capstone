@@ -980,3 +980,17 @@ input:focus-visible {
     left: 0;
   }
 }
+
+.back2 {
+  opacity: 0.2;
+}
+
+#spin {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
+#spinOther {
+  margin: 1.3em;
+}
