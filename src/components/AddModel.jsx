@@ -164,7 +164,7 @@ const AddModel = () => {
               value={formData.geometry}
               placeholder="File modello 3D"
             />
-            <p>Dimensione massima 30 MB.</p>
+            <p>Dimensione massima 32 MB.</p>
           </div>
           <div className="mb-3">
             <input
