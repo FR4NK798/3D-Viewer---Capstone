@@ -1,3 +1,14 @@
+# CAPSTONE - 3D Viewer
+
+Questo progetto Capstone realizzato per il percorso finale di Epicode,
+è un sito che permette di visualizzare i propri modelli 3D all'interno del browser.
+
+Nel seguente sito si ci potrà registrare con nome utente e password, e si potranno caricare sul proprio profilo modelli 3d.
+Modelli che verranno successivamente autorizzati alla pubblicazione sul sito dall'admin.
+
+Front-End realizzato con tecnologia React e ThreeJs per l'integrazione dei modelli 3d.
+Il Back-End è stato realizzato con Php e Laravel.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
