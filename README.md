@@ -9,6 +9,13 @@ Modelli che verranno successivamente autorizzati alla pubblicazione sul sito dal
 Front-End realizzato con tecnologia React e ThreeJs per l'integrazione dei modelli 3d.
 Il Back-End è stato realizzato con Php e Laravel.
 
+<img width="1280" alt="Schermata 2024-11-28 alle 22 11 20" src="https://github.com/user-attachments/assets/6cd6d35a-d579-47de-be26-65c0772f7656">
+<img width="835" alt="Schermata 2024-11-28 alle 22 13 05" src="https://github.com/user-attachments/assets/5ff5e5b1-5b8a-4538-a388-12f6aa423a85">
+<img width="835" alt="Schermata 2024-11-28 alle 22 13 28" src="https://github.com/user-attachments/assets/c30f48d7-c18c-4d0a-94ca-c2527b02c1aa">
+<img width="836" alt="Schermata 2024-11-28 alle 22 14 01" src="https://github.com/user-attachments/assets/508b6e0b-b59f-4a84-a811-06fe52cdfe48">
+<img width="834" alt="Schermata 2024-11-28 alle 22 14 17" src="https://github.com/user-attachments/assets/9d20b04d-d365-4679-886f-d2f74def3755">
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
